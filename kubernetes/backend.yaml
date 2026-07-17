@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: akashyadav29/blogops-backend-beta:v2.1
+          image: akashyadav29/blogops-backend-beta:v5
           ports:
             - containerPort: 8080
 ---
