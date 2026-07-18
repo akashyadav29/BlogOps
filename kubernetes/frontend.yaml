@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: akashyadav29/blogops-frontend-beta:v5.1
+          image: akashyadav29/blogops-frontend-beta:v5.2
           ports:
             - containerPort: 5173
 ---
