@@ -315,7 +315,8 @@ Prometheus & Grafana
 
 ---
 
-<img width="960" height="540" alt="Screenshot 2026-07-18 062143" src="https://github.com/user-attachments/assets/f40ef586-61f4-4e1d-aa14-bbb07a918905" />
+<img width="960" height="503" alt="Screenshot 2026-07-18 062143" src="https://github.com/user-attachments/assets/a04c2872-9e8c-41cc-bb14-a7b6d200376d" />
+
 
 ---
 
