@@ -1,21 +1,22 @@
 # 🚀 BlogOps - End-to-End DevSecOps CI/CD Pipeline on Amazon EKS
 
-![Jenkins](https://img.shields.io/badge/Jenkins-CI-red)
-![Docker](https://img.shields.io/badge/Docker-Containerization-blue)
-![Kubernetes](https://img.shields.io/badge/Kubernetes-EKS-326CE5)
-![ArgoCD](https://img.shields.io/badge/ArgoCD-GitOps-orange)
-![SonarQube](https://img.shields.io/badge/SonarQube-Code%20Quality-brightgreen)
-![Trivy](https://img.shields.io/badge/Trivy-Security-blueviolet)
-![Prometheus](https://img.shields.io/badge/Prometheus-Monitoring-orange)
-![Grafana](https://img.shields.io/badge/Grafana-Dashboard-F46800)
+![Jenkins](https://img.shields.io/badge/Jenkins-CI-red?logo=jenkins)
+![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white)
+![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?logo=kubernetes&logoColor=white)
+![ArgoCD](https://img.shields.io/badge/ArgoCD-EF7B4D?logo=argo&logoColor=white)
+![AWS](https://img.shields.io/badge/AWS-EKS-FF9900?logo=amazon-aws&logoColor=white)
+![SonarQube](https://img.shields.io/badge/SonarQube-Code%20Quality-4E9BCD?logo=sonarqube)
+![Trivy](https://img.shields.io/badge/Trivy-Security-blue)
+![Prometheus](https://img.shields.io/badge/Prometheus-Monitoring-E6522C?logo=prometheus)
+![Grafana](https://img.shields.io/badge/Grafana-Dashboard-F46800?logo=grafana)
 
 ---
 
-# 📖 Overview
+# 📌 Overview
 
-**BlogOps** is a production-style **three-tier MERN application** deployed on **Amazon EKS** using a complete **DevSecOps CI/CD pipeline**.
+**BlogOps** is a production-style **three-tier MERN blogging application** deployed on **Amazon EKS** using a complete **DevSecOps CI/CD pipeline**.
 
-The project automates code quality analysis, security scanning, Docker image creation, GitOps deployment, Kubernetes orchestration, and monitoring.
+The project automates application build, security scanning, code quality analysis, Docker image creation, GitOps deployment, Kubernetes orchestration, and monitoring.
 
 ---
 
@@ -25,86 +26,86 @@ The project automates code quality analysis, security scanning, Docker image cre
 Developer
      │
      ▼
-GitHub Repository
+ GitHub Repository
      │
      ▼
-Jenkins CI Pipeline
- ├── Git Checkout
- ├── Trivy Scan
+ Jenkins CI Pipeline
+ ├── Source Code Checkout
+ ├── Trivy Filesystem Scan
  ├── OWASP Dependency Check
- ├── SonarQube Analysis
+ ├── SonarQube Code Analysis
  ├── Quality Gate
  ├── Build Docker Images
  ├── Push Images to Docker Hub
  └── Trigger CD Pipeline
      │
      ▼
-Jenkins CD Pipeline
- ├── Update Kubernetes Manifests
+ Jenkins CD Pipeline
+ ├── Update Kubernetes YAML
  ├── Commit Changes
  └── Push to GitHub
      │
      ▼
-GitHub (GitOps)
+ GitHub (GitOps)
      │
      ▼
-ArgoCD
+ ArgoCD
      │
      ▼
-Amazon EKS
+ Amazon EKS Cluster
  ├── React Frontend
  ├── Node.js Backend
- └── MongoDB Database
+ ├── MongoDB
+ └── Redis
      │
      ▼
-Prometheus
+ Prometheus
      │
      ▼
-Grafana
+ Grafana
 ```
 
 ---
 
 # 🚀 Tech Stack
 
-## Cloud
-
+### Cloud
 - AWS EC2
 - Amazon EKS
 - IAM
 
-## CI/CD
-
+### CI/CD
 - Jenkins
 - GitHub
 - Docker Hub
 
-## Containers
-
+### Containerization
 - Docker
 - Kubernetes
 
-## GitOps
-
+### GitOps
 - ArgoCD
 
-## DevSecOps
-
+### DevSecOps
 - SonarQube
 - Trivy
 - OWASP Dependency Check
 
-## Monitoring
-
+### Monitoring
 - Prometheus
 - Grafana
 
-## Application
-
-- React
+### Backend
 - Node.js
 - Express.js
 - MongoDB
+- Redis
+
+### Frontend
+- React
+- TypeScript
+- Tailwind CSS
+- Vite
 
 ---
 
@@ -115,9 +116,9 @@ BlogOps
 │
 ├── frontend/
 ├── backend/
+├── database/
 ├── kubernetes/
 ├── Automations/
-├── database/
 ├── GitOps/
 ├── Jenkinsfile
 ├── docker-compose.yml
@@ -130,80 +131,79 @@ BlogOps
 
 The Jenkins CI pipeline performs:
 
-- Source Code Checkout
-- Filesystem Vulnerability Scan using Trivy
-- Dependency Vulnerability Scan using OWASP Dependency Check
-- Static Code Analysis using SonarQube
-- Quality Gate Validation
-- Backend & Frontend Environment Configuration
-- Docker Image Build
-- Docker Image Push to Docker Hub
-- Trigger Jenkins CD Pipeline
+- Checkout Source Code
+- Trivy Filesystem Scan
+- OWASP Dependency Check
+- SonarQube Code Analysis
+- SonarQube Quality Gate
+- Generate Environment Variables
+- Build Docker Images
+- Push Images to Docker Hub
+- Trigger CD Pipeline
 
 ---
 
 # 🚀 CD Pipeline
 
-The Jenkins CD pipeline performs:
+The CD pipeline automatically:
 
-- Checkout GitHub Repository
-- Update Kubernetes Deployment Image Tags
-- Commit Updated Manifests
-- Push Changes to GitHub
-- ArgoCD Detects Changes
-- Automatic Deployment to Amazon EKS
+- Checks out Kubernetes manifests
+- Updates Docker image tags
+- Commits updated manifests
+- Pushes changes to GitHub
+- ArgoCD detects changes
+- Automatically deploys the latest application to Amazon EKS
 
 ---
 
-# 🔒 Security
+# 🔐 DevSecOps
 
-Security scanning is integrated into the CI pipeline.
-
-### Trivy
-
-- Filesystem Scan
-- Docker Image Scan
-
-### OWASP Dependency Check
-
-- Detects vulnerable third-party libraries
-- Generates XML security report
+The pipeline integrates multiple security tools.
 
 ### SonarQube
 
 - Code Quality
-- Bugs
-- Vulnerabilities
+- Bugs Detection
+- Vulnerability Analysis
 - Code Smells
-- Quality Gate Validation
+- Quality Gates
+
+### Trivy
+
+- Filesystem Vulnerability Scan
+- Docker Image Security Scan
+
+### OWASP Dependency Check
+
+- Dependency Vulnerability Analysis
+- CVE Detection
+- XML Report Generation
 
 ---
 
-# ☸ Kubernetes
+# ☸ Kubernetes Components
 
-Application consists of
+The application is deployed using Kubernetes resources including:
 
-- Frontend Deployment
-- Backend Deployment
-- MongoDB Deployment
+- Deployments
 - Services
-- ConfigMaps
-- Secrets
+- Persistent Volume
+- Persistent Volume Claim
 
 ---
 
 # 📊 Monitoring
 
-Monitoring stack includes
+Monitoring is implemented using:
 
 - Prometheus
 - Grafana
 
-Used for
+Used for:
 
 - Cluster Monitoring
+- Node Monitoring
 - Pod Monitoring
-- Node Metrics
 - Resource Utilization
 
 ---
@@ -224,61 +224,44 @@ akashyadav29/blogops-frontend-beta
 
 ---
 
-# 🔄 CI/CD Flow
+# 🔄 CI/CD Workflow
 
 ```
-Code Commit
-      │
-      ▼
+Developer
+     │
+     ▼
 GitHub
-      │
-      ▼
+     │
+     ▼
 Jenkins CI
-      │
-      ▼
+     │
+     ▼
 Security Scan
-      │
-      ▼
-Code Quality Check
-      │
-      ▼
+     │
+     ▼
+Code Quality
+     │
+     ▼
 Docker Build
-      │
-      ▼
+     │
+     ▼
 Docker Hub
-      │
-      ▼
+     │
+     ▼
 Jenkins CD
-      │
-      ▼
-GitHub Manifest Update
-      │
-      ▼
+     │
+     ▼
+GitHub (Manifest Update)
+     │
+     ▼
 ArgoCD
-      │
-      ▼
+     │
+     ▼
 Amazon EKS
-      │
-      ▼
-Prometheus + Grafana
+     │
+     ▼
+Prometheus & Grafana
 ```
-
----
-
-# 📸 Screenshots
-
-Add screenshots for
-
-- Jenkins CI Pipeline
-- Jenkins CD Pipeline
-- SonarQube Dashboard
-- Trivy Scan
-- Docker Hub Images
-- ArgoCD Dashboard
-- Kubernetes Pods
-- Prometheus Dashboard
-- Grafana Dashboard
-- BlogOps Application
 
 ---
 
@@ -286,38 +269,71 @@ Add screenshots for
 
 - Automated CI/CD Pipeline
 - GitOps Deployment
-- Static Code Analysis
-- Dependency Vulnerability Scan
-- Filesystem Vulnerability Scan
-- Docker Image Automation
+- Dockerized MERN Application
 - Kubernetes Deployment
-- Automatic GitHub Manifest Update
-- Monitoring & Alerting
-- Production Style Architecture
+- Automated Image Versioning
+- SonarQube Code Quality
+- Trivy Vulnerability Scanning
+- OWASP Dependency Analysis
+- Monitoring with Prometheus & Grafana
+- Email Notifications from Jenkins
 
 ---
 
-# 🎯 Future Improvements
+# 📸 Screenshots
 
-- Helm Charts
-- Horizontal Pod Autoscaler
-- Ingress Controller
-- AWS Load Balancer Controller
-- Terraform Infrastructure
-- Slack Notifications
-- Blue/Green Deployment
+
+<img width="960" height="507" alt="Screenshot 2026-07-18 052731" src="https://github.com/user-attachments/assets/f7336fa0-972a-4296-9fed-0646ad17774b" />
+
+---
+
+<img width="960" height="505" alt="Screenshot 2026-07-18 052656" src="https://github.com/user-attachments/assets/9ad1d371-a2b5-4d07-a7e8-1eabe79e8b40" />
+
+---
+
+<img width="960" height="505" alt="Screenshot 2026-07-18 052800" src="https://github.com/user-attachments/assets/c6540c17-26b0-4c85-8aa9-5ec697dadf8d" />
+
+---
+
+<img width="960" height="503" alt="Screenshot 2026-07-18 052556" src="https://github.com/user-attachments/assets/4211f325-c933-4bc4-9edd-17549eb845c0" />
+
+---
+
+<img width="960" height="503" alt="Screenshot 2026-07-18 060806" src="https://github.com/user-attachments/assets/55a380bf-e50a-4885-8fbe-ed4ed44e721e" />
+
+---
+
+<img width="960" height="507" alt="Screenshot 2026-07-18 051936" src="https://github.com/user-attachments/assets/36a47f74-5894-49d7-b595-dfc7719cffb9" />
+
+---
+
+<img width="960" height="500" alt="Screenshot 2026-07-18 062320" src="https://github.com/user-attachments/assets/ff0eec99-d085-4ba3-8f8b-d31fab90bea4" />
+
+---
+
+<img width="960" height="505" alt="Screenshot 2026-07-18 063501" src="https://github.com/user-attachments/assets/a6b91176-299f-427e-9849-a3ea5e392160" />
+
+---
+
+<img width="960" height="540" alt="Screenshot 2026-07-18 062143" src="https://github.com/user-attachments/assets/f40ef586-61f4-4e1d-aa14-bbb07a918905" />
+
+---
+
+# 🛠 Prerequisites
+
+- AWS Account
+- Docker
+- Kubernetes Cluster (Amazon EKS)
+- Jenkins
+- GitHub
+- Docker Hub
+- SonarQube
+- ArgoCD
+- Prometheus
+- Grafana
 
 ---
 
 # 👨‍💻 Author
 
 **Akash Yadav**
-
-DevOps Engineer | AWS | Docker | Kubernetes | Jenkins | ArgoCD | GitHub | SonarQube | Prometheus | Grafana
-
-GitHub: https://github.com/akashyadav29
-LinkedIn: *Add your LinkedIn profile here*
-
----
-
-# ⭐ If you like this project, give it a Star!
